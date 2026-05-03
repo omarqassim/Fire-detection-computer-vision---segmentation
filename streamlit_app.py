@@ -11,7 +11,7 @@ from utils.visualization import draw_segmentation, generate_colors
 
 # --- Page Configuration ---
 st.set_page_config(
-    page_title="YOLOv11 Segmentation",
+    page_title="YOLOv8 Nano Segmentation",
     page_icon="🎯",
     layout="wide",
     initial_sidebar_state="expanded"
