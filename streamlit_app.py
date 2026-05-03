@@ -49,7 +49,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # --- Initialization ---
-@st.cache_resource(show_spinner="Loading YOLOv11 Model...")
+@st.cache_resource(show_spinner="Loading YOLOv8 Nano Segmentation Model...")
 def load_model():
     model_path = os.path.join("model", "best.pt")
     if not os.path.exists(model_path):
@@ -75,7 +75,7 @@ with st.sidebar:
     legend_container = st.empty()
 
 # --- Main Area ---
-st.markdown('<p class="main-header">🎯 YOLOv11 Object Segmentation</p>', unsafe_allow_html=True)
+st.markdown('<p class="main-header">🎯YOLOv8 Nano Object Segmentation</p>', unsafe_allow_html=True)
 st.markdown('<p class="sub-header">Upload an image to perform high-precision instance segmentation.</p>', unsafe_allow_html=True)
 
 # Load model
