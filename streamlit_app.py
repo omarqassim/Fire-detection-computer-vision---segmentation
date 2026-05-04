@@ -99,12 +99,9 @@ if uploaded_file is not None:
 else:
     demo_path = os.path.join("assets", "demo.png")
     if os.path.exists(demo_path):
-        st.info("No image uploaded. Click the button below to use the demo image.")
-        if st.button("🖼️ Use Demo Image", use_container_width=True):
-            st.session_state["use_demo"] = True
-
-    if st.session_state.get("use_demo"):
-        image_to_process = Image.open(demo_path)
+        use_demo = st.checkbox("🖼️ Use demo image instead")
+        if use_demo:
+            image_to_process = Image.open(demo_path)
 
 # --- Run Segmentation ---
 if image_to_process is not None:
