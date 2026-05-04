@@ -70,7 +70,6 @@ st.markdown('<p class="main-header">🎯YOLOv8 Nano Object Segmentation</p>', un
 st.markdown('<p class="sub-header">Upload an image to perform high-precision instance segmentation.</p>', unsafe_allow_html=True)
 
 segmentor = load_model()
-st.sidebar.write(segmentor.labels)  # debug - امسحه بعد ما تتأكد
 
 if segmentor is None:
     st.error("⚠️ Model not found! Please ensure 'model/best.pt' exists.")
@@ -88,6 +87,7 @@ if unique_classes > 0:
 
 uploaded_file = st.file_uploader("Upload an image...", type=["jpg", "jpeg", "png", "bmp", "webp"])
 
+# --- Image Selection Logic ---
 image_to_process = None
 
 if uploaded_file is not None:
@@ -103,6 +103,7 @@ else:
         if use_demo:
             image_to_process = Image.open(demo_path)
 
+# --- Run Segmentation ---
 if image_to_process is not None:
     img_np = np.array(image_to_process.convert('RGB'))
     
